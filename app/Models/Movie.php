@@ -24,9 +24,9 @@ class Movie extends Model
         });
     }
 
-    public function genre()
+    public function genres()
     {
-        return $this->belongsTo(Genre::class);
+        return $this->belongsToMany(Genre::class, 'movie_genre');
     }
 
     public function casts()

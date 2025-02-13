@@ -20,37 +20,33 @@
 
                     <div class="mb-3">
                         <label class="form-label fw-bold">Judul Film</label>
-                        <input type="text" class="form-control border-2 border-gray-500 rounded-2 p-2"
-                               value="{{ $movie->title }}" disabled>
+                        <p class="form-control-plaintext">{{ $movie->title }}</p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-bold">Slug</label>
-                        <input type="text" class="form-control border-2 border-gray-500 rounded-2 p-2"
-                            value="{{ $movie->slug }}" disabled>
+                        <p class="form-control-plaintext">{{ $movie->slug }}</p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-bold">Genre</label>
-                        <input type="text" class="form-control border-2 border-gray-500 rounded-2 p-2"
-                               value="{{ $movie->genre->name }}" disabled>
+                        <p class="form-control-plaintext">
+                            {{ $movie->genres->pluck('name')->join(', ') }}
+                        </p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-bold">Deskripsi</label>
-                        <textarea class="form-control border-2 border-gray-500 rounded-2 p-2" rows="4" disabled>{{ $movie->description }}</textarea>
+                        <p class="form-control-plaintext">{{ $movie->description }}</p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-bold">Tanggal Rilis</label>
-                        <input type="text" class="form-control border-2 border-gray-500 rounded-2 p-2"
-                               value="{{ $movie->release_date }}" disabled>
+                        <p class="form-control-plaintext">{{ $movie->release_date }}</p>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Durasi (menit)</label>
-                        <input type="text" class="form-control border-2 border-gray-500 rounded-2 p-2"
-                               value="{{ $movie->duration }} menit" disabled>
+                        <label class="form-label fw-bold">Durasi</label>
+                        <p class="form-control-plaintext">{{ $movie->duration }} menit</p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-bold">Rating</label>
-                        <input type="text" class="form-control border-2 border-gray-500 rounded-2 p-2"
-                               value="{{ $movie->rating }}" disabled>
+                        <p class="form-control-plaintext">{{ $movie->rating }}</p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-bold">Poster</label>
@@ -82,7 +78,6 @@
                             <button class="btn btn-outline-danger px-4" disabled>Sudah di Favorit ❤️</button>
                         @endif
                     </div>
-
                 </div>
             </div>
         </div>

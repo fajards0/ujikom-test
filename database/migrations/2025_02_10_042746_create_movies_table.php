@@ -19,7 +19,6 @@ return new class extends Migration
             $table->date('release_date');
             $table->integer('duration');
             $table->float('rating')->default(0);
-            $table->foreignId('genre_id')->constrained()->onDelete('cascade');
             $table->string('poster')->nullable();
             $table->string('trailer_url')->nullable();
             $table->timestamps();

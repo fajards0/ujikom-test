@@ -11,6 +11,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\MovieImageController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\User\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +27,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // **Group route untuk User**
 Route::middleware(['auth', 'user'])->group(function () {
-    Route::get('/', fn() => view('hometemp'));
-    Route::get('/hometemp', [AdminController::class, 'user'])->name('user.dashboard');
+    Route::get('/animedetail', [HomeController::class, 'animedetail']);
+    Route::get('/', [HomeController::class, 'index'])->name('user.dashboard');
 });
 
 // **Group route untuk Admin**
