@@ -22,8 +22,6 @@ use App\Http\Controllers\User\HomeController;
 // **Autentikasi Laravel**
 Auth::routes();
 
-// **Redirect berdasarkan role setelah login**
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // **Group route untuk User**
 Route::middleware(['auth', 'user'])->group(function () {

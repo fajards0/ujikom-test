@@ -1,81 +1,86 @@
 @extends('layout.layout')
 
 @section('content')
+    <style>
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .text-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            color: white;
+            z-index: 2;
+        }
+
+        .text-content h2 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .img-block {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            /* 16:9 aspect ratio */
+            overflow: hidden;
+            border-radius: 10px;
+            /* Sesuaikan dengan desain */
+        }
+
+        .img-block img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Pastikan gambar tidak terdistorsi */
+        }
+    </style>
 
     <!-- Hero Banner start -->
     <div class="hero-banner-1 p-40">
         <div class="container-fluid">
             <div class="row">
+                <!-- Film Utama -->
                 <div class="col-xxl-8 mb-30 mb-xxl-0">
-                    <div class="anime-card ">
-                        <div class="content">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/logo/logo-1.png" class="logo" alt="">
-                            <h2 class="h-40 bold color-white mb-16">Demon Slayer: <br> Kimetsu no Yaiba</h2>
+                    <div class="anime-card"
+                        style="background-image: url('{{ asset('storage/' . $featuredMovie->poster) }}');
+                        position: relative;
+                        width: 152%;
+                        height: 800px;
+                        border-radius: 10px;
+                        overflow: hidden;">
+                        <div class="overlay"></div>
+                        <div class="text-content">
+                            <h2 class="h-40 bold color-white mb-16">{{ $featuredMovie->title }}</h2>
                             <ul class="tag unstyled mb-16">
-                                <li>18+</li>
+                                <li>{{ $featuredMovie->rating }}+</li>
                                 <li>HD</li>
-                                <li>2029</li>
-                                <li>Anime</li>
-                                <li>1hr 45m</li>
+                                <li>{{ date('Y', strtotime($featuredMovie->release_date)) }}</li>
+                                <li>{{ $featuredMovie->genres->pluck('name')->join(', ') }}</li>
+                                <li>{{ $featuredMovie->duration }} menit</li>
                             </ul>
-                            <p class="color-white mb-32"><b class="color-medium-gray">Starting:</b> Natsuki Hanae,
-                                Akari Kito, Hiro Shimono</p>
+                            <p class="color-white mb-32"><b class="color-medium-gray">Starting:</b>
+                                {{ $featuredMovie->casts->pluck('name')->take(3)->join(', ') }}
+                            </p>
                             <div class="btn-block">
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#videoModal"
                                     class="cus-btn primary">
-                                    <i class="far fa-play"></i>
-                                    Play
+                                    <i class="far fa-play"></i> Play
                                 </a>
-                                <a href="https://uiparadox.co.uk/templates/vivid/v3/anime-detail.html" class="cus-btn sec">
-                                    <i class="fal fa-info-circle"></i>
-                                    More info
+                                <a href="{{ route('movies.show', $featuredMovie->id) }}" class="cus-btn sec">
+                                    <i class="fal fa-info-circle"></i> More info
                                 </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-4">
-                    <div class="row">
-                        <div class="col-xxl-12 col-xl-6 col-12">
-                            <div class="anime-sm-card mb-30">
-                                <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-1.png" class="br-12" alt="">
-                                <div class="content">
-                                    <h4 class="h-30 color-white mb-8">My Hero Academia</h4>
-                                    <ul class="tag unstyled mb-16">
-                                        <li>2019</li>
-                                        <li class="sec">18+</li>
-                                        <li>4 Seasons</li>
-                                        <li>Anime</li>
-                                    </ul>
-                                    <p class=" sm color-medium-gray">Sentenced to death, ninja Gabimaru the Hollow
-                                        finds himself apathetic. </p>
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#videoModal"
-                                        class="cus-btn primary space">
-                                        <i class="far fa-play"></i>
-                                        Play
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-12 col-xl-6 col-12">
-                            <div class="anime-sm-card">
-                                <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-2.png" class="br-12" alt="">
-                                <div class="content">
-                                    <h4 class="h-30 color-white mb-8">Hell’s Paradise</h4>
-                                    <ul class="tag unstyled mb-16">
-                                        <li>2019</li>
-                                        <li class="sec">18+</li>
-                                        <li>4 Seasons</li>
-                                        <li>Anime</li>
-                                    </ul>
-                                    <p class=" sm color-medium-gray">Sentenced to death, ninja Gabimaru the Hollow
-                                        finds himself apathetic. </p>
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#videoModal"
-                                        class="cus-btn primary space">
-                                        <i class="far fa-play"></i>
-                                        Play
-                                    </a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -84,84 +89,22 @@
         </div>
     </div>
 
+
     <!-- Main Content Start -->
     <div class="page-content">
         <!-- Categories Area Start -->
         <section class="categories p-40">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-xxl-3 col-sm-6 mb-30">
-                        <a href="https://uiparadox.co.uk/templates/vivid/v3/anime-listing.html" class="categorie-item">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/categories/Img-1.png" alt="">
-                            <div class="content">
-                                <h2 class="h-36 mb-1 color-white">Shonen</h2>
-                                <span class="h-20 color-medium-gray">850+ Animes</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-xxl-3 col-sm-6 mb-30">
-                        <a href="https://uiparadox.co.uk/templates/vivid/v3/anime-listing.html" class="categorie-item">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/categories/Img-2.png" alt="">
-                            <div class="content">
-                                <h2 class="h-36 mb-1 color-white">Action</h2>
-                                <span class="h-20 color-medium-gray">850+ Animes</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-xxl-3 col-sm-6 mb-30">
-                        <a href="https://uiparadox.co.uk/templates/vivid/v3/anime-listing.html" class="categorie-item">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/categories/Img-3.png" alt="">
-                            <div class="content">
-                                <h2 class="h-36 mb-1 color-white">Fantasy</h2>
-                                <span class="h-20 color-medium-gray">850+ Animes</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-xxl-3 col-sm-6 mb-30">
-                        <a href="https://uiparadox.co.uk/templates/vivid/v3/anime-listing.html" class="categorie-item">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/categories/Img-4.png" alt="">
-                            <div class="content">
-                                <h2 class="h-36 mb-1 color-white">Romantic</h2>
-                                <span class="h-20 color-medium-gray">850+ Animes</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-xxl-3 col-sm-6 mb-30">
-                        <a href="https://uiparadox.co.uk/templates/vivid/v3/anime-listing.html" class="categorie-item">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/categories/Img-5.png" alt="">
-                            <div class="content">
-                                <h2 class="h-36 mb-1 color-white">Comedy</h2>
-                                <span class="h-20 color-medium-gray">850+ Animes</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-xxl-3 col-sm-6 mb-30">
-                        <a href="https://uiparadox.co.uk/templates/vivid/v3/anime-listing.html" class="categorie-item">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/categories/Img-6.png" alt="">
-                            <div class="content">
-                                <h2 class="h-36 mb-1 color-white">Drama</h2>
-                                <span class="h-20 color-medium-gray">850+ Animes</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-xxl-3 col-sm-6 mb-30">
-                        <a href="https://uiparadox.co.uk/templates/vivid/v3/anime-listing.html" class="categorie-item">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/categories/Img-7.png" alt="">
-                            <div class="content">
-                                <h2 class="h-36 mb-1 color-white">Sci-Fi</h2>
-                                <span class="h-20 color-medium-gray">850+ Animes</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-xxl-3 col-sm-6 mb-30">
-                        <a href="https://uiparadox.co.uk/templates/vivid/v3/anime-listing.html" class="categorie-item">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/categories/Img-8.png" alt="">
-                            <div class="content">
-                                <h2 class="h-36 mb-1 color-white">Adventure</h2>
-                                <span class="h-20 color-medium-gray">850+ Animes</span>
-                            </div>
-                        </a>
-                    </div>
+                    @foreach ($genres as $genre)
+                        <div class="col-xxl-3 col-sm-6 mb-30">
+                            <a href="#" class="categorie-item">
+                                <div class="content">
+                                    <h2 class="h-36 mb-1 color-white">{{ $genre->name }}</h2>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -171,83 +114,36 @@
         <section class="trending p-40">
             <div class="container-fluid">
                 <div class="heading mb-32">
-                    <h2 class="h-40 bold">Trending Shows</h2>
-                    <a href="https://uiparadox.co.uk/templates/vivid/v3/anime-listing.html" class="light-btn primary">View All <i
-                            class="far fa-chevron-right"></i></a>
+                    <h2 class="h-40 bold">Top Rated Movies</h2>
+                    <a href="https://uiparadox.co.uk/templates/vivid/v3/anime-listing.html" class="light-btn primary">View
+                        All <i class="far fa-chevron-right"></i></a>
                 </div>
                 <div class="row">
-                    <div class="col-xxl-3 col-xl-4 col-sm-6 mb-30 mb-xl-0">
-                        <div class="card">
-                            <div class="img-block mb-30">
-                                <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-3.png" alt="">
-                                <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn light">
-                                    Stream Now
-                                    <i class="far fa-play"></i>
-                                </a>
-                            </div>
-                            <div class="content">
-                                <div class="list">1</div>
-                                <div class="name">
-                                    <h4 class="h-24 color-white bold">Hell’s Paradise</h4>
-                                    <h6 class="h-20 color-medium-gray ">Action</h6>
+                    @foreach ($topRatedMovies as $index => $movie)
+                        <div class="col-xxl-3 col-xl-4 col-sm-6 mb-30 mb-xl-0">
+                            <br>
+                            <div class="card">
+                                <div class="img-block mb-30">
+                                    <img src="{{ asset('storage/' . $movie->poster) }}" alt="{{ $movie->title }}">
+
+                                    <a href="{{ route('movies.show', $movie->id) }}" class="cus-btn light">
+                                        Stream Now
+                                        <i class="far fa-play"></i>
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <div class="list">{{ $index + 1 }}</div>
+                                    <div class="name">
+                                        <h4 class="h-24 color-white bold">{{ $movie->title }}</h4>
+                                        <h6 class="h-20 color-medium-gray">
+                                            {{ $movie->genres->pluck('name')->join(', ') }}
+                                        </h6>
+                                        <h6 class="h-20 color-yellow">⭐ {{ $movie->rating }}/10</h6>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xxl-3 col-xl-4 col-sm-6 mb-30 mb-xl-0">
-                        <div class="card">
-                            <div class="img-block mb-30">
-                                <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-4.png" alt="">
-                                <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn light">
-                                    Stream Now
-                                    <i class="far fa-play"></i>
-                                </a>
-                            </div>
-                            <div class="content">
-                                <div class="list">2</div>
-                                <div class="name">
-                                    <h4 class="h-24 color-white bold">One Piece</h4>
-                                    <h6 class="h-20 color-medium-gray ">Comedy</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xxl-3 col-xl-4 col-sm-6 mb-30 mb-sm-0">
-                        <div class="card">
-                            <div class="img-block mb-30">
-                                <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-5.png" alt="">
-                                <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn light">
-                                    Stream Now
-                                    <i class="far fa-play"></i>
-                                </a>
-                            </div>
-                            <div class="content">
-                                <div class="list">3</div>
-                                <div class="name">
-                                    <h4 class="h-24 color-white bold">86 Eighty Six</h4>
-                                    <h6 class="h-20 color-medium-gray ">Romance</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xxl-3 col-xl-4 col-sm-6 d-xxl-block d-xl-none d-lg-block">
-                        <div class="card">
-                            <div class="img-block mb-30">
-                                <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-6.png" alt="">
-                                <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn light">
-                                    Stream Now
-                                    <i class="far fa-play"></i>
-                                </a>
-                            </div>
-                            <div class="content">
-                                <div class="list">4</div>
-                                <div class="name">
-                                    <h4 class="h-24 color-white bold">Darling In The Franxx</h4>
-                                    <h6 class="h-20 color-medium-gray ">Fantasy</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -258,13 +154,14 @@
             <div class="container-fluid">
                 <div class="heading mb-32">
                     <h2 class="h-40 bold">Continue Watching</h2>
-                    <a href="https://uiparadox.co.uk/templates/vivid/v3/anime-listing.html" class="light-btn primary">View All <i
-                            class="far fa-chevron-right"></i></a>
+                    <a href="https://uiparadox.co.uk/templates/vivid/v3/anime-listing.html" class="light-btn primary">View
+                        All <i class="far fa-chevron-right"></i></a>
                 </div>
                 <div class="row">
                     <div class="col-xxl-4 col-lg-6">
                         <div class="item mb-40">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-7.png" alt="">
+                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-7.png"
+                                alt="">
                             <div class="content">
                                 <h4 class="h-24 color-white bold mb-12">Hell’s Paradise</h4>
                                 <ul class="tag unstyled">
@@ -292,7 +189,8 @@
                                     </li>
                                 </ul>
                                 <div class="btn-block">
-                                    <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn primary space">
+                                    <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html"
+                                        class="cus-btn primary space">
                                         <i class="far fa-play"></i>
                                         Play
                                     </a>
@@ -311,7 +209,8 @@
                     </div>
                     <div class="col-xxl-4 col-lg-6">
                         <div class="item mb-40">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-8.png" alt="">
+                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-8.png"
+                                alt="">
                             <div class="content">
                                 <h4 class="h-24 color-white bold mb-12">Fate Stay Night </h4>
                                 <ul class="tag unstyled">
@@ -339,7 +238,8 @@
                                     </li>
                                 </ul>
                                 <div class="btn-block">
-                                    <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn primary space">
+                                    <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html"
+                                        class="cus-btn primary space">
                                         <i class="far fa-play"></i>
                                         Play
                                     </a>
@@ -358,7 +258,8 @@
                     </div>
                     <div class="col-xxl-4 col-lg-6">
                         <div class="item mb-40">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-9.png" alt="">
+                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-9.png"
+                                alt="">
                             <div class="content">
                                 <h4 class="h-24 color-white bold mb-12">Steins Gate</h4>
                                 <ul class="tag unstyled">
@@ -386,7 +287,8 @@
                                     </li>
                                 </ul>
                                 <div class="btn-block">
-                                    <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn primary space">
+                                    <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html"
+                                        class="cus-btn primary space">
                                         <i class="far fa-play"></i>
                                         Play
                                     </a>
@@ -405,7 +307,8 @@
                     </div>
                     <div class="col-xxl-4 col-lg-6">
                         <div class="item mb-40">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-10.png" alt="">
+                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-10.png"
+                                alt="">
                             <div class="content">
                                 <h4 class="h-24 color-white bold mb-12">Black Bullet</h4>
                                 <ul class="tag unstyled">
@@ -433,7 +336,8 @@
                                     </li>
                                 </ul>
                                 <div class="btn-block">
-                                    <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn primary space">
+                                    <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html"
+                                        class="cus-btn primary space">
                                         <i class="far fa-play"></i>
                                         Play
                                     </a>
@@ -452,7 +356,8 @@
                     </div>
                     <div class="col-xxl-4 col-lg-6">
                         <div class="item mb-40">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-11.png" alt="">
+                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-11.png"
+                                alt="">
                             <div class="content">
                                 <h4 class="h-24 color-white bold mb-12">Chainsawman</h4>
                                 <ul class="tag unstyled">
@@ -480,7 +385,8 @@
                                     </li>
                                 </ul>
                                 <div class="btn-block">
-                                    <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn primary space">
+                                    <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html"
+                                        class="cus-btn primary space">
                                         <i class="far fa-play"></i>
                                         Play
                                     </a>
@@ -499,7 +405,8 @@
                     </div>
                     <div class="col-xxl-4 col-lg-6">
                         <div class="item mb-40">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-12.png" alt="">
+                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-12.png"
+                                alt="">
                             <div class="content">
                                 <h4 class="h-24 color-white bold mb-12">My Hero Academia</h4>
                                 <ul class="tag unstyled">
@@ -527,7 +434,8 @@
                                     </li>
                                 </ul>
                                 <div class="btn-block">
-                                    <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn primary space">
+                                    <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html"
+                                        class="cus-btn primary space">
                                         <i class="far fa-play"></i>
                                         Play
                                     </a>
@@ -556,7 +464,8 @@
                 <div class="card-slider ">
                     <div class="card st-2">
                         <div class="img-block mb-20">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-22.png" alt="">
+                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-22.png"
+                                alt="">
                             <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn light">
                                 Stream Now
                                 <i class="far fa-play"></i>
@@ -575,7 +484,8 @@
                     </div>
                     <div class="card st-2">
                         <div class="img-block mb-20">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-3.png" alt="">
+                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-3.png"
+                                alt="">
                             <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn light">
                                 Stream Now
                                 <i class="far fa-play"></i>
@@ -594,7 +504,8 @@
                     </div>
                     <div class="card st-2">
                         <div class="img-block mb-20">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-8.png" alt="">
+                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-8.png"
+                                alt="">
                             <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn light">
                                 Stream Now
                                 <i class="far fa-play"></i>
@@ -613,7 +524,8 @@
                     </div>
                     <div class="card st-2">
                         <div class="img-block mb-20">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-9.png" alt="">
+                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-9.png"
+                                alt="">
                             <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn light">
                                 Stream Now
                                 <i class="far fa-play"></i>
@@ -632,7 +544,8 @@
                     </div>
                     <div class="card st-2">
                         <div class="img-block mb-20">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-19.png" alt="">
+                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-19.png"
+                                alt="">
                             <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn light">
                                 Stream Now
                                 <i class="far fa-play"></i>
@@ -658,7 +571,8 @@
         <section class="comming-soon p-40">
             <div class="container-fluid">
                 <div class="content">
-                    <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/comming-soon/image.png" alt="">
+                    <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/comming-soon/image.png"
+                        alt="">
                     <div class="details">
                         <h4 class="h-20 bold color-primary mb-8">Coming Soon!</h4>
                         <ul class="timer countdown unstyled data-timer1">
@@ -687,8 +601,7 @@
                             <li>Himeno</li>
                             <li>Aki Hayakawa</li>
                         </ul>
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#videoModal"
-                            class="cus-btn primary">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#videoModal" class="cus-btn primary">
                             <i class="far fa-play"></i>
                             Watch Trailer
                         </a>
@@ -705,7 +618,8 @@
                 <div class="row">
                     <div class="col-xl-4 col-md-6 mb-xl-0 mb-30">
                         <div class="anime-card">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-13.png" class="br-20" alt="">
+                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-13.png"
+                                class="br-20" alt="">
                             <div class="name">
                                 <h1 class="h-30 bold color-white">Another</h1>
                                 <ul class="tag unstyled">
@@ -738,7 +652,8 @@
                         <div class="row">
                             <div class="col-xxl-12">
                                 <div class="anime-card st-2 mb-30">
-                                    <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-14.png" alt="">
+                                    <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-14.png"
+                                        alt="">
                                     <div class="name">
                                         <h1 class="h-30 bold color-white">Attack on Titan</h1>
                                         <ul class="tag unstyled">
@@ -767,7 +682,8 @@
                             </div>
                             <div class="col-xxl-12">
                                 <div class="anime-card st-2">
-                                    <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-15.png" alt="">
+                                    <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-15.png"
+                                        alt="">
                                     <div class="name">
                                         <h1 class="h-30 bold color-white">Black Bullet</h1>
                                         <ul class="tag unstyled">
@@ -800,7 +716,8 @@
                         <div class="row">
                             <div class="col-xl-12 col-md-6">
                                 <div class="anime-card st-2 mb-30 mb-none">
-                                    <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-16.png" alt="">
+                                    <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-16.png"
+                                        alt="">
                                     <div class="name">
                                         <h1 class="h-30 bold color-white">Garden Words</h1>
                                         <ul class="tag unstyled">
@@ -829,7 +746,8 @@
                             </div>
                             <div class="col-xl-12 col-md-6">
                                 <div class="anime-card st-2">
-                                    <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-17.png" alt="">
+                                    <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-17.png"
+                                        alt="">
                                     <div class="name">
                                         <h1 class="h-30 bold color-white">One Piece</h1>
                                         <ul class="tag unstyled">
@@ -870,7 +788,8 @@
                 <div class="card-slider ">
                     <div class="card st-2">
                         <div class="img-block mb-20">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-9.png" alt="">
+                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-9.png"
+                                alt="">
                             <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn light">
                                 Stream Now
                                 <i class="far fa-play"></i>
@@ -889,7 +808,8 @@
                     </div>
                     <div class="card st-2">
                         <div class="img-block mb-20">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-3.png" alt="">
+                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-3.png"
+                                alt="">
                             <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn light">
                                 Stream Now
                                 <i class="far fa-play"></i>
@@ -908,7 +828,8 @@
                     </div>
                     <div class="card st-2">
                         <div class="img-block mb-20">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-18.png" alt="">
+                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-18.png"
+                                alt="">
                             <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn light">
                                 Stream Now
                                 <i class="far fa-play"></i>
@@ -927,7 +848,8 @@
                     </div>
                     <div class="card st-2">
                         <div class="img-block mb-20">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-19.png" alt="">
+                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-19.png"
+                                alt="">
                             <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn light">
                                 Stream Now
                                 <i class="far fa-play"></i>
@@ -946,7 +868,8 @@
                     </div>
                     <div class="card st-2">
                         <div class="img-block mb-20">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-8.png" alt="">
+                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-8.png"
+                                alt="">
                             <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn light">
                                 Stream Now
                                 <i class="far fa-play"></i>
@@ -976,7 +899,8 @@
                 <div class="card-slider ">
                     <div class="card st-2 bold">
                         <div class="img-block mb-20">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-10.png" alt="">
+                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-10.png"
+                                alt="">
                             <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn light">
                                 Stream Now
                                 <i class="far fa-play"></i>
@@ -995,7 +919,8 @@
                     </div>
                     <div class="card st-2">
                         <div class="img-block mb-20">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-23.png" alt="">
+                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-23.png"
+                                alt="">
                             <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn light">
                                 Stream Now
                                 <i class="far fa-play"></i>
@@ -1014,7 +939,8 @@
                     </div>
                     <div class="card st-2">
                         <div class="img-block mb-20">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-24.png" alt="">
+                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-24.png"
+                                alt="">
                             <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn light">
                                 Stream Now
                                 <i class="far fa-play"></i>
@@ -1033,7 +959,8 @@
                     </div>
                     <div class="card st-2">
                         <div class="img-block mb-20">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-25.png" alt="">
+                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-25.png"
+                                alt="">
                             <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn light">
                                 Stream Now
                                 <i class="far fa-play"></i>
@@ -1052,7 +979,8 @@
                     </div>
                     <div class="card st-2">
                         <div class="img-block mb-20">
-                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-12.png" alt="">
+                            <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-card/img-12.png"
+                                alt="">
                             <a href="https://uiparadox.co.uk/templates/vivid/v3/movie-detail.html" class="cus-btn light">
                                 Stream Now
                                 <i class="far fa-play"></i>
@@ -1077,6 +1005,4 @@
     </div>
 
     <!-- Main Content End -->
-
 @endsection
-

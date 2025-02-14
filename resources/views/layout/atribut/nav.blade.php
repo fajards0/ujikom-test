@@ -8,11 +8,7 @@
                     <li class="menu-item"><a href="{{ url('/') }}">Home</a></li>
                     <li class="menu-item"><a href="{{ url('/animelist') }}">List Anime</a></li>
                     <li class="has-children">
-                        <a href="javascript:void(0);">Detail</a>
-                        <ul class="submenu">
-                            <li><a href="{{ url('/animedetail') }}">Anime Detail</a></li>
-                            <li><a href="{{ url('/animemovie') }}">Movie Detail</a></li>
-                        </ul>
+                        <a href="{{ url('/animedetail') }}">Detail</a>
                     </li>
                     <li class="has-children">
                         <a href="javascript:void(0);">Pages</a>

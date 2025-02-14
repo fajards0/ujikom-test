@@ -5,161 +5,9 @@
      <div class="inner-banner p-40">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-xxl-4 col-lg-5 mb-lg-0 mb-24">
-                    <div class="movie-listing">
-                        <div class="name-detail">
-                            <div class="season-list mb-16">
-                                <a href="#" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#season1" aria-expanded="true" aria-controls="season1">
-                                     <span>
-                                        Season-1: Demon Slayer: Kimetsu no Yaiba Mugen Train Arc
-                                     </span>
-                                     <i class="fa fa-chevron-down"></i>
-                                </a>
-                                <div id="season1" class="accordion-collapse collapse"  data-bs-parent="#accordionExample">
-                                    <ul class="accordion-body unstyled">
-                                        <li>
-                                            <a href="https://uiparadox.co.uk/templates/vivid/v3/anime-detail.html">Season-1: Demon Slayer: Kimetsu no Yaiba Mugen Train Arc</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://uiparadox.co.uk/templates/vivid/v3/anime-detail.html">Season-2: Demon Slayer: Kimetsu no Yaiba Mugen Train Arc</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://uiparadox.co.uk/templates/vivid/v3/anime-detail.html">Season-3: Demon Slayer: Kimetsu no Yaiba Mugen Train Arc</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://uiparadox.co.uk/templates/vivid/v3/anime-detail.html">Season-4: Demon Slayer: Kimetsu no Yaiba Mugen Train Arc</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <h4 class="h-24 bold mb-16 color-medium-gray">Episodes - 11</h4>
-                        </div>
-                        <div class="episode-list">
-                            <div class="list">
-                                <div class="img-block">
-                                    <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-season/card-1.png" alt="">
-                                    <a href="https://uiparadox.co.uk/templates/vivid/v3/anime-detail.html" class="cus-btn light sm-light">Now Playing</a>
-                                </div>
-                                <div class="detail-list">
-                                    <h5 class="color-white">E1 - Flame Hashira Kyojuro Rengoku</h5>
-                                    <p><span>Genre:</span> Drama, Comedy</p>
-                                    <p><span>Language:</span> English, Chinese</p>
-                                    <div class="time-view">
-                                        <p><span>26m 19s</span></p>
-                                        <div class="views-block">
-                                            <a href="#"><i class="fal fa-thumbs-up"></i> 19K</a>
-                                            <a href="#">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
-                                                    <g clip-path="url(#clip0_1041_3563)">
-                                                    <path d="M13.7021 5.4789L13.7021 5.47889C12.4334 4.86014 11.1887 4.55469 10 4.55469C8.81138 4.55469 7.56663 4.86014 6.29798 5.47888C5.30078 5.96529 4.28726 6.64533 3.28724 7.50513L13.7021 5.4789ZM13.7021 5.4789C14.8423 6.03491 15.7282 6.65859 16.7128 7.50513C18.4075 8.96232 19.4508 10.4039 19.4838 10.4498L19.4839 10.4499M13.7021 5.4789L19.4839 10.4499M19.4839 10.4499C19.5055 10.4798 19.5054 10.5202 19.4839 10.5501L19.4837 10.5504M19.4839 10.4499L19.4837 10.5504M19.4837 10.5504C19.4509 10.5961 18.4075 12.0377 16.7128 13.4949C15.7128 14.3547 14.6993 15.0347 13.7021 15.5211C12.4334 16.1399 11.1887 16.4453 10 16.4453C8.81343 16.4453 7.57096 16.1409 6.30452 15.5243C6.17247 15.455 6.06115 15.3969 5.96576 15.3471L5.9429 15.3352C5.40436 15.0541 5.40264 15.0532 4.84824 14.6841C4.32661 14.3368 3.8049 13.94 3.28721 13.4949C1.59259 12.0377 0.549236 10.5961 0.516254 10.5503L0.516172 10.5501M19.4837 10.5504L0.516172 10.5501M0.516172 10.5501C0.494597 10.5202 0.494631 10.4798 0.516145 10.4499L0.516254 10.4497M0.516172 10.5501L0.516254 10.4497M0.516254 10.4497C0.549228 10.4039 1.59262 8.96234 3.28721 7.50515L0.516254 10.4497ZM0.935733 10.1875L0.685329 10.4999L0.935478 10.8126C1.35465 11.3365 2.23269 12.3645 3.41965 13.382C3.91324 13.8051 4.49726 14.2562 5.15037 14.6733L5.16076 14.6799L5.17146 14.6861L6.22619 15.2886L6.23769 15.2952L6.24952 15.3011C7.36691 15.8632 8.64487 16.2734 10 16.2734C12.2268 16.2734 14.258 15.1859 15.8249 13.9913C17.3993 12.791 18.5628 11.4383 19.0643 10.8125L19.3147 10.5001L19.0645 10.1875C18.6455 9.66375 17.7674 8.63562 16.5804 7.61804C16.0868 7.19494 15.5028 6.74379 14.8496 6.32668L14.8393 6.32005L14.8286 6.31394L13.7739 5.7114L13.7624 5.70483L13.7505 5.69888C12.6332 5.1368 11.3552 4.72656 10 4.72656C7.77329 4.72656 5.7421 5.81407 4.17519 7.00868C2.60077 8.20903 1.43727 9.56173 0.935733 10.1875ZM13.6303 10.4378C13.6303 12.4427 12.005 14.068 10 14.068C7.99511 14.068 6.36978 12.4427 6.36978 10.4378C6.36978 8.43282 7.99511 6.80749 10 6.80749C12.005 6.80749 13.6303 8.43282 13.6303 10.4378Z" stroke="#F8F8FF"/>
-                                                    </g>
-                                                    <defs>
-                                                    <clipPath id="clip0_1041_3563">
-                                                        <rect width="20" height="20" fill="white" transform="translate(0 0.5)"/>
-                                                    </clipPath>
-                                                    </defs>
-                                                </svg> 1K
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="line"></div>
-                            <div class="list">
-                                <div class="img-block">
-                                    <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-season/card-2.png" alt="">
-                                    <a href="https://uiparadox.co.uk/templates/vivid/v3/anime-detail.html" class="cus-btn light sm-light">Now Playing</a>
-                                </div>
-                                <div class="detail-list">
-                                    <h5 class="color-white">E2 - Flame Hashira Kyojuro Rengoku</h5>
-                                    <p><span>Genre:</span> Drama, Comedy</p>
-                                    <p><span>Language:</span> English, Chinese</p>
-                                    <div class="time-view">
-                                        <p><span>26m 19s</span></p>
-                                        <div class="views-block">
-                                            <a href="#"><i class="fal fa-thumbs-up"></i> 19K</a>
-                                            <a href="#">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
-                                                    <g clip-path="url(#clip0_1041_3564)">
-                                                    <path d="M13.7021 5.4789L13.7021 5.47889C12.4334 4.86014 11.1887 4.55469 10 4.55469C8.81138 4.55469 7.56663 4.86014 6.29798 5.47888C5.30078 5.96529 4.28726 6.64533 3.28724 7.50513L13.7021 5.4789ZM13.7021 5.4789C14.8423 6.03491 15.7282 6.65859 16.7128 7.50513C18.4075 8.96232 19.4508 10.4039 19.4838 10.4498L19.4839 10.4499M13.7021 5.4789L19.4839 10.4499M19.4839 10.4499C19.5055 10.4798 19.5054 10.5202 19.4839 10.5501L19.4837 10.5504M19.4839 10.4499L19.4837 10.5504M19.4837 10.5504C19.4509 10.5961 18.4075 12.0377 16.7128 13.4949C15.7128 14.3547 14.6993 15.0347 13.7021 15.5211C12.4334 16.1399 11.1887 16.4453 10 16.4453C8.81343 16.4453 7.57096 16.1409 6.30452 15.5243C6.17247 15.455 6.06115 15.3969 5.96576 15.3471L5.9429 15.3352C5.40436 15.0541 5.40264 15.0532 4.84824 14.6841C4.32661 14.3368 3.8049 13.94 3.28721 13.4949C1.59259 12.0377 0.549236 10.5961 0.516254 10.5503L0.516172 10.5501M19.4837 10.5504L0.516172 10.5501M0.516172 10.5501C0.494597 10.5202 0.494631 10.4798 0.516145 10.4499L0.516254 10.4497M0.516172 10.5501L0.516254 10.4497M0.516254 10.4497C0.549228 10.4039 1.59262 8.96234 3.28721 7.50515L0.516254 10.4497ZM0.935733 10.1875L0.685329 10.4999L0.935478 10.8126C1.35465 11.3365 2.23269 12.3645 3.41965 13.382C3.91324 13.8051 4.49726 14.2562 5.15037 14.6733L5.16076 14.6799L5.17146 14.6861L6.22619 15.2886L6.23769 15.2952L6.24952 15.3011C7.36691 15.8632 8.64487 16.2734 10 16.2734C12.2268 16.2734 14.258 15.1859 15.8249 13.9913C17.3993 12.791 18.5628 11.4383 19.0643 10.8125L19.3147 10.5001L19.0645 10.1875C18.6455 9.66375 17.7674 8.63562 16.5804 7.61804C16.0868 7.19494 15.5028 6.74379 14.8496 6.32668L14.8393 6.32005L14.8286 6.31394L13.7739 5.7114L13.7624 5.70483L13.7505 5.69888C12.6332 5.1368 11.3552 4.72656 10 4.72656C7.77329 4.72656 5.7421 5.81407 4.17519 7.00868C2.60077 8.20903 1.43727 9.56173 0.935733 10.1875ZM13.6303 10.4378C13.6303 12.4427 12.005 14.068 10 14.068C7.99511 14.068 6.36978 12.4427 6.36978 10.4378C6.36978 8.43282 7.99511 6.80749 10 6.80749C12.005 6.80749 13.6303 8.43282 13.6303 10.4378Z" stroke="#F8F8FF"/>
-                                                    </g>
-                                                    <defs>
-                                                    <clipPath id="clip0_1041_3564">
-                                                        <rect width="20" height="20" fill="white" transform="translate(0 0.5)"/>
-                                                    </clipPath>
-                                                    </defs>
-                                                </svg> 1K
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="line"></div>
-                            <div class="list">
-                                <div class="img-block">
-                                    <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-season/card-3.png" alt="">
-                                    <a href="https://uiparadox.co.uk/templates/vivid/v3/anime-detail.html" class="cus-btn light sm-light">Now Playing</a>
-                                </div>
-                                <div class="detail-list">
-                                    <h5 class="color-white">E3 - Flame Hashira Kyojuro Rengoku</h5>
-                                    <p><span>Genre:</span> Drama, Comedy</p>
-                                    <p><span>Language:</span> English, Chinese</p>
-                                    <div class="time-view">
-                                        <p><span>26m 19s</span></p>
-                                        <div class="views-block">
-                                            <a href="#"><i class="fal fa-thumbs-up"></i> 19K</a>
-                                            <a href="#">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
-                                                    <g clip-path="url(#clip0_1041_3565)">
-                                                    <path d="M13.7021 5.4789L13.7021 5.47889C12.4334 4.86014 11.1887 4.55469 10 4.55469C8.81138 4.55469 7.56663 4.86014 6.29798 5.47888C5.30078 5.96529 4.28726 6.64533 3.28724 7.50513L13.7021 5.4789ZM13.7021 5.4789C14.8423 6.03491 15.7282 6.65859 16.7128 7.50513C18.4075 8.96232 19.4508 10.4039 19.4838 10.4498L19.4839 10.4499M13.7021 5.4789L19.4839 10.4499M19.4839 10.4499C19.5055 10.4798 19.5054 10.5202 19.4839 10.5501L19.4837 10.5504M19.4839 10.4499L19.4837 10.5504M19.4837 10.5504C19.4509 10.5961 18.4075 12.0377 16.7128 13.4949C15.7128 14.3547 14.6993 15.0347 13.7021 15.5211C12.4334 16.1399 11.1887 16.4453 10 16.4453C8.81343 16.4453 7.57096 16.1409 6.30452 15.5243C6.17247 15.455 6.06115 15.3969 5.96576 15.3471L5.9429 15.3352C5.40436 15.0541 5.40264 15.0532 4.84824 14.6841C4.32661 14.3368 3.8049 13.94 3.28721 13.4949C1.59259 12.0377 0.549236 10.5961 0.516254 10.5503L0.516172 10.5501M19.4837 10.5504L0.516172 10.5501M0.516172 10.5501C0.494597 10.5202 0.494631 10.4798 0.516145 10.4499L0.516254 10.4497M0.516172 10.5501L0.516254 10.4497M0.516254 10.4497C0.549228 10.4039 1.59262 8.96234 3.28721 7.50515L0.516254 10.4497ZM0.935733 10.1875L0.685329 10.4999L0.935478 10.8126C1.35465 11.3365 2.23269 12.3645 3.41965 13.382C3.91324 13.8051 4.49726 14.2562 5.15037 14.6733L5.16076 14.6799L5.17146 14.6861L6.22619 15.2886L6.23769 15.2952L6.24952 15.3011C7.36691 15.8632 8.64487 16.2734 10 16.2734C12.2268 16.2734 14.258 15.1859 15.8249 13.9913C17.3993 12.791 18.5628 11.4383 19.0643 10.8125L19.3147 10.5001L19.0645 10.1875C18.6455 9.66375 17.7674 8.63562 16.5804 7.61804C16.0868 7.19494 15.5028 6.74379 14.8496 6.32668L14.8393 6.32005L14.8286 6.31394L13.7739 5.7114L13.7624 5.70483L13.7505 5.69888C12.6332 5.1368 11.3552 4.72656 10 4.72656C7.77329 4.72656 5.7421 5.81407 4.17519 7.00868C2.60077 8.20903 1.43727 9.56173 0.935733 10.1875ZM13.6303 10.4378C13.6303 12.4427 12.005 14.068 10 14.068C7.99511 14.068 6.36978 12.4427 6.36978 10.4378C6.36978 8.43282 7.99511 6.80749 10 6.80749C12.005 6.80749 13.6303 8.43282 13.6303 10.4378Z" stroke="#F8F8FF"/>
-                                                    </g>
-                                                    <defs>
-                                                    <clipPath id="clip0_1041_3565">
-                                                        <rect width="20" height="20" fill="white" transform="translate(0 0.5)"/>
-                                                    </clipPath>
-                                                    </defs>
-                                                </svg> 1K
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="line"></div>
-                            <div class="list">
-                                <div class="img-block">
-                                    <img src="https://uiparadox.co.uk/templates/vivid/v3/assets/media/anime-season/card-3.png" alt="">
-                                    <a href="https://uiparadox.co.uk/templates/vivid/v3/anime-detail.html" class="cus-btn light sm-light">Now Playing</a>
-                                </div>
-                                <div class="detail-list">
-                                    <h5 class="color-white">E4 - Flame Hashira Kyojuro Rengoku</h5>
-                                    <p><span>Genre:</span> Drama, Comedy</p>
-                                    <p><span>Language:</span> English, Chinese</p>
-                                    <div class="time-view">
-                                        <p><span>26m 19s</span></p>
-                                        <div class="views-block">
-                                            <a href="#"><i class="fal fa-thumbs-up"></i> 19K</a>
-                                            <a href="#">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
-                                                    <g clip-path="url(#clip0_1041_3566)">
-                                                    <path d="M13.7021 5.4789L13.7021 5.47889C12.4334 4.86014 11.1887 4.55469 10 4.55469C8.81138 4.55469 7.56663 4.86014 6.29798 5.47888C5.30078 5.96529 4.28726 6.64533 3.28724 7.50513L13.7021 5.4789ZM13.7021 5.4789C14.8423 6.03491 15.7282 6.65859 16.7128 7.50513C18.4075 8.96232 19.4508 10.4039 19.4838 10.4498L19.4839 10.4499M13.7021 5.4789L19.4839 10.4499M19.4839 10.4499C19.5055 10.4798 19.5054 10.5202 19.4839 10.5501L19.4837 10.5504M19.4839 10.4499L19.4837 10.5504M19.4837 10.5504C19.4509 10.5961 18.4075 12.0377 16.7128 13.4949C15.7128 14.3547 14.6993 15.0347 13.7021 15.5211C12.4334 16.1399 11.1887 16.4453 10 16.4453C8.81343 16.4453 7.57096 16.1409 6.30452 15.5243C6.17247 15.455 6.06115 15.3969 5.96576 15.3471L5.9429 15.3352C5.40436 15.0541 5.40264 15.0532 4.84824 14.6841C4.32661 14.3368 3.8049 13.94 3.28721 13.4949C1.59259 12.0377 0.549236 10.5961 0.516254 10.5503L0.516172 10.5501M19.4837 10.5504L0.516172 10.5501M0.516172 10.5501C0.494597 10.5202 0.494631 10.4798 0.516145 10.4499L0.516254 10.4497M0.516172 10.5501L0.516254 10.4497M0.516254 10.4497C0.549228 10.4039 1.59262 8.96234 3.28721 7.50515L0.516254 10.4497ZM0.935733 10.1875L0.685329 10.4999L0.935478 10.8126C1.35465 11.3365 2.23269 12.3645 3.41965 13.382C3.91324 13.8051 4.49726 14.2562 5.15037 14.6733L5.16076 14.6799L5.17146 14.6861L6.22619 15.2886L6.23769 15.2952L6.24952 15.3011C7.36691 15.8632 8.64487 16.2734 10 16.2734C12.2268 16.2734 14.258 15.1859 15.8249 13.9913C17.3993 12.791 18.5628 11.4383 19.0643 10.8125L19.3147 10.5001L19.0645 10.1875C18.6455 9.66375 17.7674 8.63562 16.5804 7.61804C16.0868 7.19494 15.5028 6.74379 14.8496 6.32668L14.8393 6.32005L14.8286 6.31394L13.7739 5.7114L13.7624 5.70483L13.7505 5.69888C12.6332 5.1368 11.3552 4.72656 10 4.72656C7.77329 4.72656 5.7421 5.81407 4.17519 7.00868C2.60077 8.20903 1.43727 9.56173 0.935733 10.1875ZM13.6303 10.4378C13.6303 12.4427 12.005 14.068 10 14.068C7.99511 14.068 6.36978 12.4427 6.36978 10.4378C6.36978 8.43282 7.99511 6.80749 10 6.80749C12.005 6.80749 13.6303 8.43282 13.6303 10.4378Z" stroke="#F8F8FF"/>
-                                                    </g>
-                                                    <defs>
-                                                    <clipPath id="clip0_1041_3566">
-                                                        <rect width="20" height="20" fill="white" transform="translate(0 0.5)"/>
-                                                    </clipPath>
-                                                    </defs>
-                                                </svg> 1K
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-xxl-8 col-lg-7 ">
                     <div class="videoplayer">
-                        <div id="video" data-img="assets/media/banner/img-1.png">
+                        <div id="video" data-img="assets/media/banner/img-1.png" style="width: 152%; ">
                         </div>
                     </div>
                 </div>
@@ -200,8 +48,7 @@
                         </p>
 
                         <p class="sec color-white mb-16"><span class="color-medium-gray">Staring:</span> Natsuki Hanae, Akari Kito, Hiro Shimono </p>
-                        <p class="sec color-white mb-16"><span class="color-medium-gray">Language:</span> Japanese, English, English (India), Español (América Latina)</p>
-                        <p class="sec color-white mb-30"><span class="color-medium-gray">Subtitles:</span> Japanese, English</p>
+                        
                         <a href="#" data-bs-toggle="modal" data-bs-target="#videoModal" class="cus-btn primary">
                             <i class="far fa-play"></i>
                             Play
